@@ -7,10 +7,11 @@ const port = 3000;
 //var mysql = require("mysql");
 
 app.use("/app", express.static("../client"));
-/*
+
 app.get(
-    "/login",
+    "/app",
     function (req, res) {
+        console.log(req.query)
         if (req.query["user"] == "admin" && req.query["password"] == "admin") {
             res.status = 200;
             res.send("you can came in");
@@ -22,5 +23,5 @@ app.get(
         }
     }.bind(this)
 );
-*/
+
 app.listen(port, () => console.log(`Server vstal on port ${port}!`));

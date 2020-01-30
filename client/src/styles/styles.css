@@ -39,7 +39,6 @@
 body {
   background: #fffcb1;
 }
-
 #input {
   height: 98%;
   width: 80%;
@@ -47,14 +46,12 @@ body {
   box-sizing: border-box;
   padding-left: 10px;
   font: 8px monospace rgb(3, 3, 3);
-
   color: rgb(0, 0, 0);
   border: 3px #000000;
 }
 #input:focus {
   outline: none;
 }
-
 #button:hover {
   color: rgba(12, 12, 12);
 }
@@ -84,13 +81,9 @@ body {
 /* 
 
 
-
-
-
 */
-
 #autenfication {
-  background-color: rgb(50, 50, 50);
+  background-color: rgb(255, 255, 255);
   position: absolute;
   left: 32%;
   width: 35%;
@@ -100,27 +93,25 @@ body {
   z-index: 10;
   position: absolute;
 }
-
 #username {
   margin-left: 10%;
   width: 80%;
   text-align: center;
-  border: none;
+  border: 2px solid black;
 }
 #password {
   margin-left: 10%;
   width: 80%;
   text-align: center;
-  border: none;
+  border: 2px solid black;
 }
 #usernamediv {
   text-align: center;
-  color: rgb(58, 162, 203);
+  color: rgb(0, 0, 0);
   margin-top: 30%;
 }
-
 #passwordiv {
   text-align: center;
-  color: rgb(58, 162, 203);
+  color: rgb(0, 0, 0);
   margin-top: 10%;
 }
