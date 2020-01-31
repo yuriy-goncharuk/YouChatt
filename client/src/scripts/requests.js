@@ -5,15 +5,18 @@ export class Requests {
         xhr.responseType = "text";
         xhr.onload = function (result) {
             if (xhr.readyState === xhr.DONE) {
-                if (xhr.status === 200) {
-                    controller.autorizated();
+                console.log("status" + xhr.status);
+                if (xhr.status == 200) {
+                    if (xhr.response != "Wrong pass")
+                        controller.autorizated(xhr.response);
+                    else {
+                        alert("Wrong Password")
+                    }
                     return;
                 }
             }
         };
         xhr.send(null);
-
-        console.log(xhr);
     }
 
     static InitMessages(controller) {
@@ -29,8 +32,6 @@ export class Requests {
             }
         };
         xhr.send(null);
-
-        console.log(xhr);
     }
     static SendMessage(model, message) {
         var xhr = new XMLHttpRequest();
@@ -46,7 +47,5 @@ export class Requests {
             }
         };
         xhr.send(null);
-
-        console.log(xhr);
     }
 }

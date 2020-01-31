@@ -15,7 +15,8 @@ export class Controller extends Observable {
             return;
         }
     }
-    autorizated() {
+    autorizated(message) {
+        alert(message);
         this.notifyAll("log in", null);
         Requests.InitMessages(this);
     }
