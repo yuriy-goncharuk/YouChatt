@@ -66,4 +66,44 @@ app.get(
         res.end("Allrighht");
     }.bind(this)
 );
+app.get(
+    "/data",
+    function (req, res) {
+        res.send(localStorage.getItem('items'));
+        res.end("Allrighht");
+    }.bind(this)
+);
+app.get(
+    "/del",
+    function (req, res) {
+        let message = JSON.parse(req.query["message"]);
+        itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+        for (let i = 0; i < itemsArray.length; i++) {
+            if (itemsArray[i].date == message.date && itemsArray[i].content == message.content) {
+                itemsArray.splice(i, 1);
+                break;
+            }
+        }
+        localStorage.setItem('items', JSON.stringify(itemsArray));
+        res.send(JSON.stringify(itemsArray));
+        res.end("Allrighht");
+    }.bind(this)
+);
+app.get(
+    "/edit",
+    function (req, res) {
+        let message = JSON.parse(req.query["message"]);
+        let value = JSON.parse(req.query["value"]);
+        itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+        for (let i = 0; i < itemsArray.length; i++) {
+            if (itemsArray[i].date == message.date && itemsArray[i].content == message.content) {
+                itemsArray[i].content = value;
+                break;
+            }
+        }
+        localStorage.setItem('items', JSON.stringify(itemsArray));
+        res.send(JSON.stringify(itemsArray));
+        res.end("Allrighht");
+    }.bind(this)
+);
 app.listen(port, () => console.log(`Server vstal on port ${port}!`));

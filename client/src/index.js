@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", function () {
         const controller = new Controller();
 
         view.addObserver(controller);
+        view.addObserver(model)
         model.addObserver(controller);
         model.addObserver(view);
         controller.addObserver(model);

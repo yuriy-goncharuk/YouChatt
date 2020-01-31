@@ -14,6 +14,9 @@ export class Controller extends Observable {
             Requests.getAuto(this, data[0], data[1]);
             return;
         }
+        if (event === "getAllmessages") {
+            Requests
+        }
     }
     autorizated(message) {
         alert(message);
@@ -25,6 +28,9 @@ export class Controller extends Observable {
         if (data != "") return true;
     }
     sendAllMessages(messages) {
-        this.notifyAll("init", messages)
+        this.notifyAll("init")
+
+
+
     }
 }

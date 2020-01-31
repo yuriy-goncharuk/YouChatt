@@ -25,6 +25,15 @@ export class Model extends Observable {
   putLastMessageIntoView() {
     this.notifyAll("view_take_this", this.messages[this.messages.length - 1]);
   }
+  Refresh(resp) {
+    let data = JSON.parse(resp);
+
+
+    for (let i = 0; i < data.length; i++) {
+      this.addMessage1(data[i].content, data[i].date);
+      this.putLastMessageIntoView();
+    }
+  }
   on(obj, event, data) {
     if (event == "data_ok_lets_send_it") {
       this.addMessage(data);
@@ -32,12 +41,11 @@ export class Model extends Observable {
       Requests.SendMessage(this, this.messages[this.messages.length - 1]);
     }
     if (event == "init") {
-      data = JSON.parse(data)
-
-      for (let i = 0; i < data.length; i++) {
-        this.addMessage1(data[i].content, data[i].date);
-        this.putLastMessageIntoView();
-      }
+      console.log("megainit")
+      this.notifyAll("view_clear_all", null);
+    }
+    if (event == "megainit") {
+      Requests.getData(this);
     }
   }
 }

@@ -47,4 +47,47 @@ export class Requests {
         };
         xhr.send(null);
     }
+
+    static Del(message) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", `/del?message=${JSON.stringify(message)}`, true);
+        xhr.responseType = "text";
+        xhr.onload = function (result) {
+            if (xhr.readyState === xhr.DONE) {
+                if (xhr.status === 200) {
+                    return;
+                }
+            }
+        };
+        xhr.send(null);
+    }
+
+    static Edit(message, newval) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", `/edit?message=${JSON.stringify(message)}&value=${JSON.stringify(newval)}`, true);
+        xhr.responseType = "text";
+        xhr.onload = function (result) {
+            if (xhr.readyState === xhr.DONE) {
+                if (xhr.status === 200) {
+                    return;
+                }
+            }
+        };
+        xhr.send(null);
+    }
+
+
+    static getData(model) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", `/data`, true);
+        xhr.responseType = "text";
+        xhr.onload = function (result) {
+            if (xhr.readyState === xhr.DONE) {
+                if (xhr.status === 200) {
+                    model.Refresh(xhr.response);
+                }
+            }
+        };
+        xhr.send(null);
+    }
 }

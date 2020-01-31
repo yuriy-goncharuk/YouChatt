@@ -51,13 +51,62 @@ export class View extends Observable {
         content.className = "message_content";
         const info = document.createElement("div");
         info.className = "message_info";
+
+        const editB = document.createElement("div");
+        editB.className = "editB";
+        editB.innerHTML = "редагувати";
+
+
+        const delB = document.createElement("div");
+        delB.className = "delB";
+        delB.innerHTML = "видалити";
+
+        const data = document.createElement("div");
+        data.className = "data";
+
+
         content.innerHTML = message.content;
-        info.innerHTML = message.date;
+        data.innerHTML = message.date;
+
+
+
         bubble.appendChild(content);
+
+
+        delB.addEventListener(
+            "click",
+            function (event) {
+                message.delet();
+
+                this.notifyAll("init");
+            }.bind(this)
+        );
+
+
+        editB.addEventListener(
+            "click",
+            function (event) {
+                message.edit();
+                this.notifyAll("init");
+            }.bind(this)
+        );
+
+
+
+        info.appendChild(editB);
+        info.appendChild(delB);
+        info.appendChild(data);
+
         bubble.appendChild(info);
+
         return bubble;
     }
     on(obj, event, data) {
+        if (event === "view_clear_all") {
+            console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+            this.messagesBox.innerHTML = ''
+            this.notifyAll("megainit")
+        }
         if (event === "view_take_this") {
             this.putMessageIntoDoc(data);
         }
