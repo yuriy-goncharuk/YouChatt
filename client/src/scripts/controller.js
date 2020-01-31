@@ -29,8 +29,5 @@ export class Controller extends Observable {
     }
     sendAllMessages(messages) {
         this.notifyAll("init")
-
-
-
     }
 }
