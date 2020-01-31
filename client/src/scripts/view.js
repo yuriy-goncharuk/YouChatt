@@ -3,7 +3,6 @@ import { Observable } from "./observer";
 export class View extends Observable {
     constructor() {
         super();
-
         const send_button = document.getElementById("button");
         this.input_field = document.getElementById("input");
         this.messagesBox = document.getElementById("messages");
@@ -19,9 +18,6 @@ export class View extends Observable {
                         this.username.value,
                         this.password.value
                     ]);
-                    //////
-                    this.aoutowindow.style.display = "none";
-                    //////
                 }
             }.bind(this)
         );
@@ -30,7 +26,6 @@ export class View extends Observable {
             "click",
             function (event) {
                 this.notifyAll("user_wants_to_send", this.input_field.value);
-                this.putMessageIntoDoc(this.input_field.value);
             }.bind(this)
         );
 
@@ -39,7 +34,6 @@ export class View extends Observable {
             function (event) {
                 if (event.keyCode === 13) {
                     this.notifyAll("user_wants_to_send", this.input_field.value);
-                    this.putMessageIntoDoc(this.input_field.value);
                 }
             }.bind(this)
         );
@@ -64,10 +58,10 @@ export class View extends Observable {
         return bubble;
     }
     on(obj, event, data) {
-        if (event == "view_take_this") {
+        if (event === "view_take_this") {
             this.putMessageIntoDoc(data);
         }
-        if (event == "log in") {
+        if (event === "log in") {
             this.aoutowindow.style.display = "none";
         }
     }

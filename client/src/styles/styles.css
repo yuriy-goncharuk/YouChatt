@@ -21,7 +21,7 @@
   height: 4%;
 }
 .message_content {
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   font: 8pt monospace;
   padding-top: 10px;
   padding-left: 10px;
@@ -31,10 +31,10 @@
 .message_info {
   font: 6pt sans-serif;
   text-align: right;
-  color: rgb(58, 162, 203);
+  color: rgb(0, 0, 0);
   width: 100%;
   height: 12px;
-  border: 3px #000000;
+  border: 2px #000000;
 }
 body {
   background: #fffcb1;
