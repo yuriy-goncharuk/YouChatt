@@ -103,7 +103,6 @@ export class View extends Observable {
     }
     on(obj, event, data) {
         if (event === "view_clear_all") {
-            console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
             this.messagesBox.innerHTML = ''
             this.notifyAll("megainit")
         }
