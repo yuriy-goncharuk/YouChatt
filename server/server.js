@@ -20,9 +20,7 @@ app.get(
         let passed = false;
         let need = true;
         users = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
-        console.log(users);
         for (let i = 0; i < users.length; i++) {
-            console.log("debug" + candidatPASS + " " + users[i].name)
             if (users[i].name === candidatUSER) {
                 find = true;
                 if (candidatPASS === users[i].pass) {

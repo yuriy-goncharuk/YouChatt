@@ -25,7 +25,6 @@ export class Controller extends Observable {
         if (data != "") return true;
     }
     sendAllMessages(messages) {
-        console.log("initmessages");
         this.notifyAll("init", messages)
     }
 }

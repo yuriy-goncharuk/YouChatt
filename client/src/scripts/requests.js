@@ -5,7 +5,6 @@ export class Requests {
         xhr.responseType = "text";
         xhr.onload = function (result) {
             if (xhr.readyState === xhr.DONE) {
-                console.log("status" + xhr.status);
                 if (xhr.status == 200) {
                     if (xhr.response != "Wrong pass")
                         controller.autorizated(xhr.response);

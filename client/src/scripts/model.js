@@ -32,11 +32,9 @@ export class Model extends Observable {
       Requests.SendMessage(this, this.messages[this.messages.length - 1]);
     }
     if (event == "init") {
-      console.log(data)
       data = JSON.parse(data)
 
       for (let i = 0; i < data.length; i++) {
-        console.log(data[i])
         this.addMessage1(data[i].content, data[i].date);
         this.putLastMessageIntoView();
       }
